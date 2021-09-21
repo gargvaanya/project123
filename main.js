@@ -1,29 +1,34 @@
-menu_list_array = ["Veg Margherita Pizza",//add more items
-                    ];
+var pizza_array = ["Veg Extravaganza", "Indi Tandoori Paneer", "Non-Veg Supreme", "Chicken Fiesta", "Chicken Dominator"];
 
-function getmenu(){
-var htmldata;
-menu_list_array.sort();
-        for(var i=0;i<menu_list_array.length;i++){
-            htmldata=htmldata+ menu_list_array[i] + '<br>'
-        }
-        document.getElementById("    ").innerHTML = htmldata;
-        //give the appropriate id name as display_menu  
+function getmenu() {
+    document.getElementById("piz1").style.display= "inline-block";
+    document.getElementById("piz2").style.display= "inline-block";
+    document.getElementById("piz3").style.display= "inline-block";
+    document.getElementById("piz4").style.display= "inline-block";
+    document.getElementById("piz5").style.display= "inline-block";
+    document.getElementById("menu_list").style.display= "none";
+    document.getElementById("hide_list").style.display= "inline-block";
 }
 
-function add_item(){
-var htmldata;
-var item=document.getElementById("add_item").value;
-        // use the sort function as - menu_list_array.sort();
-        htmldata=""
-        for(var i=0;i<menu_list_array.length;i++){
-            htmldata=htmldata+imgtags+ menu_list_array[i]+'<br>';
-        }
-         document.getElementById("display_addedmenu").innerHTML = htmldata;		
-      }
+function hidemenu() {
+    document.getElementById("piz1").style.display= "none";
+    document.getElementById("piz2").style.display= "none";
+    document.getElementById("piz3").style.display= "none";
+    document.getElementById("piz4").style.display= "none";
+    document.getElementById("piz5").style.display= "none";
+    document.getElementById("menu_list").style.display= "inline-block";
+    document.getElementById("hide_list").style.display= "none";
+}   
 
-function add_top(){
-    var item=document.getElementById("add_item").value;
-    menu_list_array.push(item);
-	add_item();
+function add_item() {
+    var pizzaval;
+    var item = document.getElementById("add_item").value;
+    pizza_array.push(item);
+    pizza_array.sort();
+    pizzaval = "<section class='cards'>";
+    for(var i=0;i<pizza_array.length;i++) {
+        pizzaval=pizzaval+'<div class="card">' + '<img src="pizzaImg.png">' + pizza_array[i] + '</div>'
+    }
+    pizzaval=pizzaval+"</section>"
+    document.getElementById("display_addedmenu").innerHTML = pizzaval;
 }
